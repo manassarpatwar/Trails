@@ -1,13 +1,12 @@
 canvas {
-  width: 2000px;
-  height: 2000px;
-  position: fixed;
-  top: -25%;
-  left: -10%;
-  background: black;
-  background-image:
-    radial-gradient(ellipse 50px 100px at 25%, rgba(121,116,108,.5) 0%, rgba(121,116,108,0) 100%),
-    radial-gradient(circle farthest-side at 60% 100%, #383128, #32332E 20%, #2A2A28 40%, #040704);
+    width: 2000px;
+    height: 2000px;
+    position: fixed;
+    top: -25%;
+    left: -10%;
+    z-index: -1;
+    background: black;
+
 
 }
 
@@ -21,49 +20,82 @@ body {
     font-family: "stellar", sans-serif;
 }
 
+body a {
+    text-decoration: inherit;
+    color: inherit;
+}
 
-#splash {
+
+.sections {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    margin: 0 10%;
+    min-height: 500px;
     height: 100vh;
     align-items: center;
-    animation: in 3s ease-out forwards 1;
-
 }
 
-
-@keyframes in {
-    0% {
-        letter-spacing: -17px;
-        opacity: 0;
-    }
-
-    30% {
-        letter-spacing: 4px;
-        opacity: 1;
-    }
-
-    100% {
-        letter-spacing: 4px;
-        opacity: 1;
-    }
-}
-
-#splash p {
-    font-size: 80px;
+.spread {
     padding: 20px;
     color: white;
+    opacity: 0;
 }
 
-@media screen and (max-width : 800px) {
-    #splash{
-        flex-direction: column;
-        margin-top: -10vh;
-    }
-    
-    #splash p{
-        padding: 5px;
-        margin: 10px;
+.spread p{
+    font-size: 80px;
+}
+
+#splash .spread-animate {
+    transition-delay: 0.5s;
+}
+
+.spread-animate {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+
+.sections ul {
+    list-style: none;
+    margin: 0;
+    font-size: 65px;
+    margin-top: 50px;
+}
+
+.sections ul li {
+    padding: 20px;
+}
+
+.contact-logos {
+    width: 65px;
+    padding: 0 15px;
+    margin-bottom: -3px;
+}
+
+.details {
+    margin-left: 20%;
+}
+
+
+.hoverable:hover {
+    color: #D2B48C;
+    cursor: pointer;
+}
+
+@media screen and (max-width : 900px) {
+    .spread {
         font-size: 60px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    .spread p{
+        font-size: 50px;
+        text-align: left;
+    }
+
+    .sections ul {
+        font-size: 40px;
     }
 }
