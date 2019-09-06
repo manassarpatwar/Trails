@@ -29,7 +29,8 @@ window.addEventListener("scroll", function(event){
     var scroll = this.scrollY;
     scroll = scroll+5;
 //    console.log(scroll)
-    drawAndUpdate(scroll/2.0);
+    if(scroll>0)
+        drawAndUpdate(scroll/2.0);
     animation(sections, 'spread-animate');
 })
 var numCircles = 500;
