@@ -5,7 +5,7 @@ function isElementInViewport(el) {
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
-        rect.bottom <= (15 * window.innerHeight / 16 || 15 * document.documentElement.clientHeight / 16) && /*or $(window).height() */
+        rect.bottom <= (window.innerHeight|| document.documentElement.clientHeight) && /*or $(window).height() */
         rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
     );
 }
@@ -58,7 +58,7 @@ var Circle = function(radius, width, xPos, yPos) {
   var R = Math.round(Math.random() * 35 + 190),
       G = Math.round(Math.random() * 35 + 190),
       B = Math.round(Math.random() * 35 + 190),
-      O = Math.random() * 1;
+      O = Math.random() * 0.5;
   this.color = ['rgba(' + R, G, B, O + ')'].join(',');
 };
 

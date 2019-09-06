@@ -18,7 +18,7 @@ canvas {
 body {
     height: 5000px;
     font-family: "stellar", sans-serif;
-    color: #f5f5f5;
+    color: #f5f5f5
 }
 
 body a {
@@ -43,8 +43,8 @@ body a {
     opacity: 0;
 }
 
-.spread p{
-    font-size: 80px;
+.spread p {
+    font-size: 55px;
 }
 
 #splash .spread-animate {
@@ -54,13 +54,14 @@ body a {
 .spread-animate {
     opacity: 1;
     transition: opacity 1s ease;
+    transition-delay: 0.5s;
 }
 
 
 .sections ul {
     list-style: none;
     margin: 0;
-    font-size: 65px;
+    font-size: 55px;
     margin-top: 50px;
 }
 
@@ -70,7 +71,8 @@ body a {
 
 .contact-logos {
     width: 65px;
-    padding: 0 15px;
+    padding: 0;
+    padding-right: 5px;
     margin-bottom: -3px;
 }
 
@@ -85,24 +87,44 @@ body a {
 }
 
 @media screen and (max-width : 1200px) {
-    .spread p{
-        font-size: 60px;
+    .spread p {
+        font-size: 45px;
+    }
+
+    .sections ul {
+        font-size: 45px;
+    }
+
+    .contact-logos {
+        width: 55px;
     }
 }
 
 @media screen and (max-width : 800px) {
-    .spread p{
-        font-size: 55px;
+    .spread p {
+        font-size: 35px;
+    }
+
+    .sections ul {
+        font-size: 35px;
+    }
+
+    .contact-logos {
+        width: 45px;
     }
 }
 
 @media screen and (max-width : 600px) {
-    .spread p{
-        font-size: 40px;
+    .spread p {
+        font-size: 25px;
         text-align: left;
     }
 
     .sections ul {
-        font-size: 30px;
+        font-size: 25px;
+    }
+
+    .contact-logos {
+        width: 35px;
     }
 }
