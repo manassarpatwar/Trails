@@ -58,7 +58,7 @@ var Circle = function(radius, width, xPos, yPos) {
   var R = Math.round(Math.random() * 35 + 190),
       G = Math.round(Math.random() * 35 + 190),
       B = Math.round(Math.random() * 35 + 190),
-      O = Math.random() * 0.3;
+      O = Math.random() * 1;
   this.color = ['rgba(' + R, G, B, O + ')'].join(',');
 };
 
