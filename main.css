@@ -1,11 +1,13 @@
 canvas {
-    width: 2000px;
-    height: 2000px;
-    position: fixed;
-    top: 0;
-    left: -10%;
-    z-index: -1;
-    background: black;
+  width: 2000px;
+  height: 2000px;
+  position: fixed;
+  top: -25%;
+  left: -10%;
+  background: black;
+  background-image:
+    radial-gradient(ellipse 50px 100px at 25%, rgba(121,116,108,.5) 0%, rgba(121,116,108,0) 100%),
+    radial-gradient(circle farthest-side at 60% 100%, #383128, #32332E 20%, #2A2A28 40%, #040704);
 
 }
 
