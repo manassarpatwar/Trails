@@ -5,7 +5,7 @@ function isElementInViewport(el) {
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
-        rect.bottom <= (7 * window.innerHeight / 8 || 7 * document.documentElement.clientHeight / 8) && /*or $(window).height() */
+        rect.bottom <= (15 * window.innerHeight / 16 || 15 * document.documentElement.clientHeight / 16) && /*or $(window).height() */
         rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
     );
 }
@@ -32,7 +32,7 @@ window.addEventListener("scroll", function(event){
     drawAndUpdate(scroll/2.0);
     animation(sections, 'spread-animate');
 })
-var numCircles = 1000;
+var numCircles = 500;
 
 var canvas = document.getElementById("circle");
 var mainContext = canvas.getContext('2d');
@@ -58,7 +58,7 @@ var Circle = function(radius, width, xPos, yPos) {
   var R = Math.round(Math.random() * 35 + 190),
       G = Math.round(Math.random() * 35 + 190),
       B = Math.round(Math.random() * 35 + 190),
-      O = Math.random() * 1;
+      O = Math.random() * 0.3;
   this.color = ['rgba(' + R, G, B, O + ')'].join(',');
 };
 
@@ -104,4 +104,4 @@ var drawAndUpdate = function(scroll_pos) { 
 
 setupCircles();
 
-
+animation(sections, 'spread-animate');
