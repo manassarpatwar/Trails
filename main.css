@@ -1,0 +1,52 @@
+canvas {
+    width: 2000px;
+    height: 2000px;
+    position: fixed;
+    top: 0;
+    left: -10%;
+    z-index: -1;
+    background: black;
+
+}
+
+@font-face {
+    font-family: "stellar";
+    src: url(../Stellar-light.otf);
+}
+
+body {
+    height: 5000px;
+    font-family: "stellar", sans-serif;
+}
+
+
+#splash {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    animation: in 3s ease-out forwards 1;
+
+}
+
+@keyframes in {
+    0% {
+        letter-spacing: -17px;
+        opacity: 0;
+    }
+
+    30% {
+        letter-spacing: 4px;
+        opacity: 1;
+    }
+
+    100% {
+        letter-spacing: 4px;
+        opacity: 1;
+    }
+}
+
+#splash p {
+    font-size: 80px;
+    color: white;
+}
