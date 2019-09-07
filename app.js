@@ -19,19 +19,6 @@ function animation(el, class_name) {
 
 }
 
-function fullscreen(){
-           var el = document.getElementById('canvas');
- 
-           if(el.webkitRequestFullScreen) {
-               el.webkitRequestFullScreen();
-           }
-          else {
-             el.mozRequestFullScreen();
-          }            
-}
- 
-fullscreen();
-
 var sections = document.getElementsByClassName('spread');
 animation(sections, 'spread-animate');
 
@@ -58,6 +45,8 @@ function resizeCanvas() {
 
 resizeCanvas();
 window.onresize = resizeCanvas;
+
+
 
 
 var centerX = canvas.width / 2;
@@ -121,7 +110,7 @@ function updateTrailCoordinates(circle_index, index, x, y, r) {
 function update() {
     context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
     for (var i = 0; i < numCircles; i++) {
-        if (circles[i][0].r > 0.1)
+        if (circles[i][0].r > 0.2)
             circles[i].unshift(new Circle(0, 0, 0));
 
         updateStarCoordinates(i);
