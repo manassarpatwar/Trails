@@ -19,6 +19,19 @@ function animation(el, class_name) {
 
 }
 
+function fullscreen(){
+           var el = document.getElementById('canvas');
+ 
+           if(el.webkitRequestFullScreen) {
+               el.webkitRequestFullScreen();
+           }
+          else {
+             el.mozRequestFullScreen();
+          }            
+}
+ 
+fullscreen();
+
 var sections = document.getElementsByClassName('spread');
 animation(sections, 'spread-animate');
 
@@ -27,10 +40,6 @@ window.addEventListener("scroll", function (event) {
     scroll = this.scrollY;
     console.log(scroll)
     animation(sections, 'spread-animate');
-    if(scroll>300 && noTrails){
-        noTrails = false;
-        update();
-    }
 })
 
 var canvas = document.getElementById("canvas");
@@ -45,20 +54,23 @@ function resizeCanvas() {
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     context.translate(w / 2, h / 2);
-    drawStars();
 };
 
-// Webkit/Blink will fire this on load, but Gecko doesn't.
-window.onresize = resizeCanvas;
-
-// So we fire it manually...
 resizeCanvas();
+if(window.innerWidth > 600)
+    window.onresize = resizeCanvas;
+else{
+    canvas.height = h;
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+}
+
 
 
 var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 //context.translate(centerX, centerY);
-var half_degree = Math.PI / 720;
+var half_degree = Math.PI /1440;
 var circle_radius = 2;
 var offset = 0.01;
 var numCircles = 100;
@@ -113,21 +125,10 @@ function updateTrailCoordinates(circle_index, index, x, y, r) {
     }
 }
 
-function drawStars() {
-    context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-    for (var i = 0; i < numCircles; i++) {
-        if (circles[i][0].r > 1)
-            circles[i].unshift(new Circle(0, 0, 0));
-
-        updateStarCoordinates(i);
-        drawTrail(i);
-    }
-}
-
 function update() {
     context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
     for (var i = 0; i < numCircles; i++) {
-        if (circles[i][0].r > 0.2)
+        if (circles[i][0].r > 0.1)
             circles[i].unshift(new Circle(0, 0, 0));
 
         updateStarCoordinates(i);
@@ -153,4 +154,5 @@ function drawTrail(circle_index) {
     }
 }
 
-drawStars();
+
+update();
