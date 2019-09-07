@@ -7,6 +7,7 @@ canvas {
     position: fixed;
     left: 0;
     top: 0;
+    min-height: 800px;
     z-index: -1;
     background: black;
 }
