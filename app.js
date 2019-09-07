@@ -22,13 +22,21 @@ function animation(el, class_name) {
 var sections = document.getElementsByClassName('spread');
 animation(sections, 'spread-animate');
 
+var noTrails = true;
 window.addEventListener("scroll", function (event) {
+    scroll = this.scrollY;
+    console.log(scroll)
     animation(sections, 'spread-animate');
+    if(scroll>300 && noTrails){
+        noTrails = false;
+        update();
+    }
 })
 
 var canvas = document.getElementById("canvas");
 
 context = canvas.getContext("2d");
+
 function resizeCanvas() {
     var w = window.innerWidth;
     var h = window.innerHeight;
@@ -36,7 +44,7 @@ function resizeCanvas() {
     canvas.height = h;
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
-    context.translate(w/2, h/2);
+    context.translate(w / 2, h / 2);
 };
 
 // Webkit/Blink will fire this on load, but Gecko doesn't.
@@ -50,15 +58,15 @@ var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 //context.translate(centerX, centerY);
 var half_degree = Math.PI / 720;
-var circle_radius = 2.5;
-var offset = 0.008;
-var numCircles = 50;
+var circle_radius = 1;
+var offset = 0.01;
+var numCircles = 150;
 var circles = [];
 while (circles.push([]) < numCircles);
 
 function setup() {
     for (var i = 0; i < numCircles; i++)
-        circles[i].push(new Circle(Math.random() * canvas.width - canvas.width/2, Math.random() * canvas.height - canvas.height/2, circle_radius));
+        circles[i].push(new Circle(Math.random() * canvas.width - canvas.width / 2, Math.random() * canvas.height*2 - canvas.height, circle_radius));
 }
 setup();
 
@@ -81,15 +89,16 @@ function updateStarCoordinates(circle_index) {
     var circle = circles[circle_index][circles[circle_index].length - 1];
     var radius = Math.sqrt(Math.pow((circle.x - 0), 2) + Math.pow((circle.y - 0), 2));
     var atan = Math.atan2(circle.y, circle.x);
-//    console.log(atan);
+    //    console.log(atan);
     var newX = radius * Math.cos(atan - half_degree);
     var newY = radius * Math.sin(atan - half_degree);
 
     var prevX = circle.x;
     var prevY = circle.y;
-    circle.setXYR(newX, newY, circle.r);
+    var prevR = circle.r;
+    circle.setXYR(newX, newY, prevR);
 
-    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 50*offset)
+    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 50 * offset)
 }
 
 function updateTrailCoordinates(circle_index, index, x, y, r) {
@@ -103,10 +112,21 @@ function updateTrailCoordinates(circle_index, index, x, y, r) {
     }
 }
 
+function drawStars() {
+    context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+    for (var i = 0; i < numCircles; i++) {
+        if (circles[i][0].r > 1)
+            circles[i].unshift(new Circle(0, 0, 0));
+
+        updateStarCoordinates(i);
+        drawTrail(i);
+    }
+}
+
 function update() {
     context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
     for (var i = 0; i < numCircles; i++) {
-        if (circles[i][0].r > 0.1)
+        if (circles[i][0].r > 0.2)
             circles[i].unshift(new Circle(0, 0, 0));
 
         updateStarCoordinates(i);
@@ -116,24 +136,20 @@ function update() {
     requestAnimationFrame(update);
 }
 
-//window.addEventListener("scroll", function () {
-//    update();
-//})
-
 
 function drawTrail(circle_index) {
     for (var i = 0; i < circles[circle_index].length; i++) {
         var c = circles[circle_index][i];
         context.beginPath();
         context.arc(c.x, c.y, c.r, 0, Math.PI * 2);
-        var R = Math.round(Math.random() * 35 + 190),
-            G = Math.round(Math.random() * 35 + 190),
-            B = Math.round(Math.random() * 35 + 190),
-            O = c.r - (c.r*0.8);
-        var color = ['rgba(' + R, G, B, O + ')'].join(',');
-        context.fillStyle = color;
+        var O;
+        if (i != circles[circle_index].length)
+            O = c.r - (c.r * 0.50);
+        else
+            O = 1;
+        context.fillStyle = "rgba(255, 255, 255, " + O + ")";
         context.fill();
     }
 }
 
-update();
+drawStars();
