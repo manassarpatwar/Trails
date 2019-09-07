@@ -39,7 +39,7 @@ context = canvas.getContext("2d");
 
 function resizeCanvas() {
     var w = window.innerWidth;
-    var h = window.innerHeight;
+//    var h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
     canvas.style.width = w + "px";
