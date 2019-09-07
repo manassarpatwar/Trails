@@ -60,7 +60,7 @@ var centerY = canvas.height / 2;
 var half_degree = Math.PI / 720;
 var circle_radius = 2;
 var offset = 0.01;
-var numCircles = 150;
+var numCircles = 100;
 var circles = [];
 while (circles.push([]) < numCircles);
 
