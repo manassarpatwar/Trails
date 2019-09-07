@@ -7,7 +7,9 @@ canvas {
     position: fixed;
     left: 0;
     top: 0;
-    min-height: 800px;
+    width: 100vh;
+    height: 100vh;
+    transition: height 10000000000s;
     z-index: -1;
     background: black;
 }
