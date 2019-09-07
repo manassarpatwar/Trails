@@ -94,6 +94,23 @@ body a {
     cursor: pointer;
 }
 
+#splash .splash-spread{
+    padding: 20px;
+    color: white;
+    font-size: inherit;
+    opacity: 0;
+    animation: in 3s ease-out forwards 1;
+}
+
+@keyframes in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 @media screen and (max-width : 1200px) {
     .spread p {
         font-size: 50px;
