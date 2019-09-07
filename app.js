@@ -57,13 +57,7 @@ function resizeCanvas() {
 };
 
 resizeCanvas();
-if(window.innerWidth > 600)
-    window.onresize = resizeCanvas;
-else{
-    canvas.height = 1000;
-    canvas.style.height = 1000 + "px";
-}
-
+window.onresize = resizeCanvas;
 
 
 var centerX = canvas.width / 2;
