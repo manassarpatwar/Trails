@@ -125,16 +125,11 @@ body a {
 }
 
 @media screen and (max-width : 600px) {
-    .spread p {
-        font-size: 25px;
-        text-align: left;
+    .details{
+        justify-content: flex-start;
     }
-
-    .sections ul {
-        font-size: 25px;
-    }
-
-    .contact-logos {
-        width: 35px;
+    
+    .contact-logos{
+        padding-left: 0;
     }
 }
