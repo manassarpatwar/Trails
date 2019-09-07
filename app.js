@@ -39,12 +39,13 @@ context = canvas.getContext("2d");
 
 function resizeCanvas() {
     var w = window.innerWidth;
-//    var h = window.innerHeight;
+    var h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     context.translate(w / 2, h / 2);
+    drawStars();
 };
 
 // Webkit/Blink will fire this on load, but Gecko doesn't.
