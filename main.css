@@ -71,15 +71,25 @@ body a {
 
 .contact-logos {
     width: 65px;
-    padding: 0;
-    padding-right: 5px;
+    padding: 0 15px;
     margin-bottom: -3px;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.contact-logos:hover{
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
 }
 
 .details {
-    margin-left: 20%;
+    display: flex;
+    justify-content: center;
 }
 
+#gmail_logo{
+    padding-top: 5px;
+}
 
 .hoverable:hover {
     color: #D2B48C;
