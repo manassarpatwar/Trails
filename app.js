@@ -54,7 +54,7 @@ var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 //context.translate(centerX, centerY);
 var half_degree = Math.PI /1440;
-var circle_radius = 2;
+var circle_radius = 2.3;
 var offset = 0.01;
 var numCircles = 100;
 var circles = [];
