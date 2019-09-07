@@ -32,10 +32,11 @@ window.addEventListener("scroll", function (event) {
 var canvas = document.getElementById("canvas");
 
 context = canvas.getContext("2d");
-
+var h = 0;
 function resizeCanvas() {
     var w = window.innerWidth;
-    var h = window.innerHeight;
+    if(window.innerHeight > h)
+        h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
     canvas.style.width = w + "px";
