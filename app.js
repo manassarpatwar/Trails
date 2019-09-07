@@ -58,7 +58,7 @@ var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 //context.translate(centerX, centerY);
 var half_degree = Math.PI / 720;
-var circle_radius = 1;
+var circle_radius = 2;
 var offset = 0.01;
 var numCircles = 150;
 var circles = [];
@@ -98,7 +98,7 @@ function updateStarCoordinates(circle_index) {
     var prevR = circle.r;
     circle.setXYR(newX, newY, prevR);
 
-    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 50 * offset)
+    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 100 * offset)
 }
 
 function updateTrailCoordinates(circle_index, index, x, y, r) {
