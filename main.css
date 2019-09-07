@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "stellar";
+    src: url(../Stellar-light.otf);
+}
+
 canvas {
     width: 2000px;
     height: 2000px;
@@ -8,11 +13,6 @@ canvas {
     background: black;
 
 
-}
-
-@font-face {
-    font-family: "stellar";
-    src: url(../Stellar-light.otf);
 }
 
 body {
