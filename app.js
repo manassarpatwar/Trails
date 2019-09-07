@@ -33,9 +33,10 @@ var canvas = document.getElementById("canvas");
 
 context = canvas.getContext("2d");
 var h = 0;
+
 function resizeCanvas() {
     var w = window.innerWidth;
-    if(window.innerHeight > h)
+    if (window.innerHeight > h)
         h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
@@ -53,8 +54,8 @@ window.onresize = resizeCanvas;
 var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 //context.translate(centerX, centerY);
-var half_degree = Math.PI /1440;
-var circle_radius = 2.3;
+var half_degree = Math.PI / 720;
+var circle_radius = 2;
 var offset = 0.01;
 var numCircles = 100;
 var circles = [];
@@ -62,7 +63,7 @@ while (circles.push([]) < numCircles);
 
 function setup() {
     for (var i = 0; i < numCircles; i++)
-        circles[i].push(new Circle(Math.random() * canvas.width - canvas.width / 2, Math.random() * canvas.height*2 - canvas.height, circle_radius));
+        circles[i].push(new Circle(Math.random() * canvas.width - canvas.width / 2, Math.random() * canvas.height * 2 - canvas.height, circle_radius));
 }
 setup();
 
@@ -94,7 +95,7 @@ function updateStarCoordinates(circle_index) {
     var prevR = circle.r;
     circle.setXYR(newX, newY, prevR);
 
-    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 100 * offset)
+    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 50 * offset)
 }
 
 function updateTrailCoordinates(circle_index, index, x, y, r) {
@@ -126,16 +127,18 @@ function drawTrail(circle_index) {
     for (var i = 0; i < circles[circle_index].length; i++) {
         var c = circles[circle_index][i];
         context.beginPath();
-        context.arc(c.x, c.y, c.r, 0, Math.PI * 2);
         var O;
-        if (i != circles[circle_index].length)
+        
+        if (i != circles[circle_index].length - 1) {
             O = c.r - (c.r * 0.50);
-        else
+            context.rect(c.x, c.y, c.r, c.r);
+        } else {
+            context.arc(c.x, c.y, c.r, 0, Math.PI * 2);
             O = 1;
+        }
         context.fillStyle = "rgba(255, 255, 255, " + O + ")";
         context.fill();
     }
 }
-
 
 update();

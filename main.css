@@ -27,6 +27,18 @@ body a {
     color: inherit;
 }
 
+
+#bg {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('gif/trails_soft.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -1;
+}
+
+
 .sections {
     display: flex;
     justify-content: center;
@@ -90,8 +102,11 @@ body a {
     padding-top: 5px;
 }
 
-.hoverable:hover {
+.coloured {
     color: #D2B48C;
+}
+
+.hoverable:hover {
     cursor: pointer;
 }
 

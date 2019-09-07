@@ -7,7 +7,7 @@
     initial-scale=1, maximum-scale=1" />
     <noscript>
         <style>
-            .spread{
+            .spread {
                 opacity: 1;
             }
         </style>
@@ -17,15 +17,13 @@
 <body>
     <canvas id="canvas"></canvas>
     <main>
-        <div id = "container">
-            <noscript>
-                <div style = "position: fixed">
-                    <p>Best viewed with Javascript On</p>
-                </div>
-            </noscript>
+        <noscript>
+            <div id="bg"></div>
+        </noscript>
+        <div id="container">
             <div id="splash" class="sections">
                 <div class="splash-spread spread">
-                    <p>"Shoot for the moon and even if you miss you will still be among the stars" - Norman Vincent Peale</p>
+                    <p>"Shoot for the moon and even if you miss you will still be among the stars"<span class="coloured">- Norman Vincent Peale</span></p>
                 </div>
             </div>
             <div id="greet" class="sections">
@@ -35,35 +33,45 @@
             </div>
             <div id="intro" class="sections">
                 <div class="spread">
-                    <p>I am Manas.</p>
+                    <p>I am <span class="coloured">Manas.</span></p>
                 </div>
             </div>
             <div id="about" class="sections">
                 <div class="spread">
                     <p>I'm a student at
-                        <br><span class="hoverable">The University Of Sheffield</span></p>
+                        <br><span class="hoverable coloured">The University Of Sheffield</span></p>
                 </div>
             </div>
             <div id="about" class="sections">
                 <div class="spread">
                     <p>I am interested in:<br></p>
-                    <p class="hoverable"><a href="#web-design">Web Design</a></p>
-                    <p class="hoverable"><a href="#web-design">Software Development</a></p>
-                    <p class="hoverable">Machine Learning</p>
+                    <p class="hoverable coloured"><a href="#web-design">Web Design</a></p>
+                    <p class="hoverable coloured"><a href="#web-design">Software Development</a></p>
+                    <p class="hoverable coloured">Machine Learning</p>
                 </div>
             </div>
             <div id="web-design" class="sections">
                 <div class="spread">
                     <p>Some web design that<br>I have done:</p>
-                    <p class="hoverable"><a href="https://simonaspetk.github.io/StudentsUnionWebsite/index.html" target="_blank">Students Union Website</a></p>
-                    <p class="hoverable"><a href="https://github.com/manassarpatwar/Alta" target="_blank">Alta Taxi</a></p>
+                    <p class="hoverable coloured"><a href="https://simonaspetk.github.io/StudentsUnionWebsite/index.html" target="_blank">Students Union Website</a></p>
+                    <p class="hoverable coloured"><a href="https://github.com/manassarpatwar/Alta" target="_blank">Alta Taxi</a></p>
                 </div>
             </div>
+            <noscript>
+                <div id="javascript" class="sections">
+                    <div class="splash-spread spread">
+                        <p>I too don't like <span class="coloured">Javascript</span> much</p>
+                        <p>I try to find novel ways to work <br>around <span class="coloured">Javascript</span></p>
+                        <p>This probably look okay</p>
+                    </div>
+                    <p>P.S Dont forget to turn <span class="coloured">JS</span> back on</p>
+                </div>
+            </noscript>
 
 
             <div id="contact" class="sections">
                 <div class="spread">
-                    <p>My contact details:</p>
+                    <p>My contact <span class="coloured">details:</span></p>
                     <div class="details">
                         <a href="https://www.linkedin.com/in/manas-sarpatwar-5165bb172/" target="_blank"><img src="img/LinkedIn.png" alt="LinkedIn logo" class="contact-logos" id="linkedin_logo"></a><a href="mailto:manas.mahesh.sarpatwar@gmail.com" target="_top"><img src="img/gmail.svg" alt="Gmail logo" class="contact-logos" id="gmail_logo"></a>
                     </div>
