@@ -60,9 +60,8 @@ resizeCanvas();
 if(window.innerWidth > 600)
     window.onresize = resizeCanvas;
 else{
-    canvas.height = h;
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
+    canvas.height = 1000;
+    canvas.style.height = 1000 + "px";
 }
 
 
