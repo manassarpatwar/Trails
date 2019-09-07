@@ -98,11 +98,11 @@ body a {
 
 @media screen and (max-width : 1200px) {
     .spread p {
-        font-size: 45px;
+        font-size: 50px;
     }
 
     .sections ul {
-        font-size: 45px;
+        font-size: 50px;
     }
 
     .contact-logos {
@@ -112,11 +112,11 @@ body a {
 
 @media screen and (max-width : 800px) {
     .spread p {
-        font-size: 35px;
+        font-size: 45px;
     }
 
     .sections ul {
-        font-size: 35px;
+        font-size: 45px;
     }
 
     .contact-logos {
