@@ -25,7 +25,7 @@ animation(sections, 'spread-animate');
 var noTrails = true;
 window.addEventListener("scroll", function (event) {
     scroll = this.scrollY;
-    console.log(scroll)
+    //    console.log(scroll)
     animation(sections, 'spread-animate');
 })
 
@@ -54,19 +54,27 @@ window.onresize = resizeCanvas;
 var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 //context.translate(centerX, centerY);
-var half_degree = Math.PI / 720;
-var circle_radius = 2;
+//var half_degree = Math.PI / 720;
+var circle_radius = 2.4;
 var offset = 0.01;
-var numCircles = 100;
-var circles = [];
-while (circles.push([]) < numCircles);
+var numTrails = canvas.width / 10;
+var trails = [];
+var minimumRadius = 0.6;
 
 function setup() {
-    for (var i = 0; i < numCircles; i++)
-        circles[i].push(new Circle(Math.random() * canvas.width - canvas.width / 2, Math.random() * canvas.height * 2 - canvas.height, circle_radius));
+    for (var i = 0; i < numTrails; i++)
+        trails.push(new Trail());
 }
 setup();
 
+function Trail() {
+    this.circles = [];
+    this.starOpacity = Math.random() + 0.4;
+    //    this.R = Math.round(Math.random() * 35 + 220),
+    //    this.G = Math.round(Math.random() * 35 + 220),
+    //    this.B = Math.round(Math.random() * 35 + 220),
+    this.circles.push(new Circle(Math.random() * canvas.width - canvas.width / 2, Math.random() * canvas.height * 2 - canvas.height, circle_radius));
+}
 
 function Circle(x, y, r) {
     this.x = x;
@@ -74,71 +82,89 @@ function Circle(x, y, r) {
     this.r = r;
 }
 
-Circle.prototype.setXYR = function (newX, newY, newR) {
+Circle.prototype.setX = function (newX) {
     this.x = newX;
+}
+
+Circle.prototype.setY = function (newY) {
     this.y = newY;
+}
+
+Circle.prototype.setR = function (newR) {
     this.r = newR;
 }
 
 
 
-function updateStarCoordinates(circle_index) {
-    var circle = circles[circle_index][circles[circle_index].length - 1];
+
+function updateStarCoordinates(trail_index) {
+    var trail = trails[trail_index];
+    var circle = trail.circles[trail.circles.length - 1];
     var radius = Math.sqrt(Math.pow((circle.x - 0), 2) + Math.pow((circle.y - 0), 2));
     var atan = Math.atan2(circle.y, circle.x);
     //    console.log(atan);
-    var newX = radius * Math.cos(atan - half_degree);
-    var newY = radius * Math.sin(atan - half_degree);
+    var dTheta = 1 / radius;
+    var newX = radius * Math.cos(atan - dTheta);
+    var newY = radius * Math.sin(atan - dTheta);
 
     var prevX = circle.x;
     var prevY = circle.y;
     var prevR = circle.r;
-    circle.setXYR(newX, newY, prevR);
+    circle.setX(newX);
+    circle.setY(newY);
+    circle.setR(prevR);
 
-    updateTrailCoordinates(circle_index, circles[circle_index].length - 2, prevX, prevY, circle.r - 50 * offset)
+    updateTrailCoordinates(trail_index, trail.circles.length - 2, prevX, prevY, circle.r - 50 * offset)
 }
 
-function updateTrailCoordinates(circle_index, index, x, y, r) {
+function updateTrailCoordinates(trail_index, index, x, y, r) {
     if (index >= 0) {
-        var circle = circles[circle_index][index];
+        var circle = trails[trail_index].circles[index];
         var prevX = circle.x;
         var prevY = circle.y;
         var prevR = circle.r;
-        circle.setXYR(x, y, r);
-        updateTrailCoordinates(circle_index, index - 1, prevX, prevY, prevR - offset);
+        circle.setX(x);
+        circle.setY(y);
+        circle.setR(r);
+
+        updateTrailCoordinates(trail_index, index - 1, prevX, prevY, prevR - offset);
     }
 }
 
 function update() {
     context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-    for (var i = 0; i < numCircles; i++) {
-        if (circles[i][0].r > 0.2)
-            circles[i].unshift(new Circle(0, 0, 0));
-
+    for (var i = 0; i < numTrails; i++) {
+        if (trails[i].circles[0].r > minimumRadius)
+            trails[i].circles.unshift(new Circle(0, 0, 0));
         updateStarCoordinates(i);
         drawTrail(i);
     }
-
     requestAnimationFrame(update);
 }
 
 
-function drawTrail(circle_index) {
-    for (var i = 0; i < circles[circle_index].length; i++) {
-        var c = circles[circle_index][i];
+function drawTrail(trail_index) {
+    var trail = trails[trail_index];
+    for (var i = 0; i < trail.circles.length; i++) {
+        var c = trail.circles[i];
+        if ((c.x > canvas.width / 2 || c.x < -canvas.width / 2) &&
+            c.y > canvas.height / 2 || c.y < -canvas.height / 2) {
+            continue;
+        }
         context.beginPath();
         var O;
-        
-        if (i != circles[circle_index].length - 1) {
-            O = c.r - (c.r * 0.50);
-            context.rect(c.x, c.y, c.r, c.r);
+
+        if (i != trails[trail_index].circles.length - 1) {
+            O = trail.starOpacity - c.r / 20;
+            context.rect(c.x - c.r / 2, c.y - c.r / 2, c.r, c.r);
         } else {
             context.arc(c.x, c.y, c.r, 0, Math.PI * 2);
-            O = 1;
+            O = trail.starOpacity;
         }
-        context.fillStyle = "rgba(255, 255, 255, " + O + ")";
+        //        var color = ['rgba(' + trail.R, trail.G, trail.B, O + ')'].join(',');
+        var color = "rgba(255, 255, 255, " + O + ")";
+        context.fillStyle = color;
         context.fill();
     }
 }
-
 update();
