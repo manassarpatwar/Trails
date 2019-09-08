@@ -11,6 +11,14 @@ canvas {
     min-height: -webkit-fill-available;
     height: 100%;
     z-index: -1;
+/*    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);*/
+/*    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);*/
+/*    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);*/
+/*    background-image: linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%);*/
+/*    background-image: linear-gradient(to bottom, #3ab5b0 0%, #3d99be 31%, #56317a 100%);*/
+/*    background-image: linear-gradient(to bottom, #243949 0%, #517fa4 100%);*/
+/*    background-image: linear-gradient(to bottom, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);*/
+/*    background-image: linear-gradient(to top, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);*/
     background: black;
 }
 
@@ -27,7 +35,7 @@ body a {
     color: inherit;
 }
 
-.random-splash{
+.random-splash {
     display: none;
 }
 
@@ -107,6 +115,7 @@ sections ul li {
 
 .coloured {
     color: #D2B48C;
+/*    color : #ccac00;*/
 }
 
 .hoverable:hover {
@@ -115,27 +124,30 @@ sections ul li {
 
 #splash .splash-spread {
     padding: 20px;
-    color: white;
     font-size: inherit;
     opacity: 0;
     animation: in 3s ease-out forwards 1;
 }
 
-.link-icon{
+.link-icon {
     padding: 0 15px;
     transform: scale(1);
     transition: transform 0.3s ease;
 }
 
-.link-icon:hover{
+.link-icon:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
+
 @keyframes in {
     0% {
         opacity: 0;
     }
 
+    60% {
+        opacity: 1;
+    }
     100% {
         opacity: 1;
     }
