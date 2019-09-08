@@ -8,6 +8,7 @@ canvas {
     left: 0;
     top: 0;
     width: 100%;
+    min-height: -webkit-fill-available;
     height: 100%;
     z-index: -1;
     background: black;
@@ -24,6 +25,10 @@ body {
 body a {
     text-decoration: inherit;
     color: inherit;
+}
+
+.random-splash{
+    display: none;
 }
 
 #bg {
@@ -115,6 +120,7 @@ sections ul li {
     opacity: 0;
     animation: in 3s ease-out forwards 1;
 }
+
 
 @keyframes in {
     0% {

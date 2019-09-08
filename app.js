@@ -19,6 +19,11 @@ function animation(el, class_name) {
 
 }
 
+var randomQuotes = document.getElementsByClassName("random-splash");
+var rand = Math.round(Math.random()*(randomQuotes.length-1));
+console.log(rand)
+randomQuotes[rand].style.display = "block";
+
 var sections = document.getElementsByClassName('spread');
 animation(sections, 'spread-animate');
 
@@ -69,7 +74,7 @@ setup();
 
 function Trail() {
     this.circles = [];
-    this.starOpacity = Math.random() + 0.4;
+    this.starOpacity = Math.random() - 0.2;
     //    this.R = Math.round(Math.random() * 35 + 220),
     //    this.G = Math.round(Math.random() * 35 + 220),
     //    this.B = Math.round(Math.random() * 35 + 220),
