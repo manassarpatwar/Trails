@@ -8,13 +8,12 @@ function resizeCanvas() {
     canvas.height = window.innerHeight*2;
     w = canvas.width;
     h = canvas.height;
-    canvas.style.width = w/2 + "px";
-    canvas.style.height = h/2 + "px";
-    context.translate(w / 2, h / 2);
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+    context.translate(w / 4, h / 4);
 };
 
 resizeCanvas();
-window.onresize = resizeCanvas;
 
 var half_degree = Math.PI / 180;
 
