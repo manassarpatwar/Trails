@@ -4,13 +4,13 @@ context = canvas.getContext("2d");
 var h = 0;
 
 function resizeCanvas() {
-    var w = window.innerWidth;
+    canvas.width = window.innerWidth*2;
     if (window.innerHeight > h)
-        h = window.innerHeight;
-    canvas.width = w;
-    canvas.height = h;
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
+        canvas.height = window.innerHeight*2;
+    w = canvas.width;
+    h = canvas.height;
+    canvas.style.width = w/2 + "px";
+    canvas.style.height = h/2 + "px";
     context.translate(w / 2, h / 2);
 };
 
