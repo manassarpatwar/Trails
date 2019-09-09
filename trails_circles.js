@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 
 context = canvas.getContext("2d");
+var w = 0;
 var h = 0;
 
 function resizeCanvas() {
@@ -15,9 +16,6 @@ function resizeCanvas() {
 };
 
 resizeCanvas();
-
-
-
 
 var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
