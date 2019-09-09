@@ -32,6 +32,8 @@ window.addEventListener("scroll", function (event) {
     animation(sections, 'spread-animate');
 })
 
+document.getElementById("body").style.height = window.innerHeight;
+
 
 var backgroundGradients = ["linear-gradient(to bottom, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%)",
     "linear-gradient(to top, #09203f 0%, #537895 100%)",

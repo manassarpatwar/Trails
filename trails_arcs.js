@@ -1,14 +1,11 @@
 var canvas = document.getElementById("canvas");
 
 context = canvas.getContext("2d");
+var w = 0;
 var h = 0;
-var prevHeight = 0;
 function resizeCanvas() {
     canvas.width = window.innerWidth*2;
-    if (window.innerHeight > prevHeight){
-        canvas.height = window.innerHeight*2;
-        prevHeight = window.innerHeight;
-    }
+    canvas.height = window.innerHeight*2;
     w = canvas.width;
     h = canvas.height;
     canvas.style.width = w/2 + "px";
