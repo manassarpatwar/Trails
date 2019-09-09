@@ -4,13 +4,13 @@ context = canvas.getContext("2d");
 var w = 0;
 var h = 0;
 function resizeCanvas() {
-    canvas.width = window.innerWidth*2;
-    canvas.height = window.innerHeight*2;
+    canvas.width = window.innerWidth*4;
+    canvas.height = window.innerHeight*4;
     w = canvas.width;
     h = canvas.height;
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
-    context.translate(w / 4, h / 4);
+    context.translate(w / 8, h / 8);
 };
 
 resizeCanvas();
@@ -25,8 +25,9 @@ var speed = Math.PI/400;
 
 function setup(){
     for(var i = 0; i < numTrails; i++){
-        var radius =  Math.sqrt(Math.pow(Math.random()*w - w/2 , 2) + Math.pow(Math.random()*h - h/2, 2));
-        trails.push(new Trail(radius))
+        var radius =  Math.sqrt(Math.pow(Math.random()*w/8 , 2) + Math.pow(Math.random()*h/8 , 2));
+        if(radius< Math.max(window.innerWidth, window.innerHeight))
+            trails.push(new Trail(radius))
     }
 }
 setup();
@@ -49,7 +50,7 @@ function Arc(start_angle, end_angle, width, radius) {
 //window.addEventListener("scroll", function () {
 function animate(){
     context.clearRect(-w/ 2, -h/ 2, w, h);
-    for(var i = 0; i < numTrails; i++){
+    for(var i = 0; i < trails.length; i++){
         if (trails[i].arc_width >= 0) {
 //            var st_ang = Math.random()*Math.PI*2;
             trails[i].arcs.push(new Arc(trails[i].st_ang, trails[i].st_ang+half_degree, trails[i].arc_width, trails[i].radius));
