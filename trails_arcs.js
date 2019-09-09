@@ -2,7 +2,7 @@ var canvas = document.getElementById("canvas");
 
 context = canvas.getContext("2d");
 var h = 0;
-
+window.scrollTo(0,document.body.scrollHeight);
 function resizeCanvas() {
     canvas.width = window.innerWidth*2;
     if (window.innerHeight*2 > h)
@@ -15,6 +15,7 @@ function resizeCanvas() {
 };
 
 resizeCanvas();
+window.scrollTo(0,0);
 window.onresize = resizeCanvas;
 
 var half_degree = Math.PI / 180;
