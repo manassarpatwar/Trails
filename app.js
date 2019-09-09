@@ -26,7 +26,7 @@ randomQuotes[rand].style.display = "block";
 var sections = document.getElementsByClassName('spread');
 animation(sections, 'spread-animate');
 
-
+var noTrails = true;
 window.addEventListener("scroll", function (event) {
     scroll = this.scrollY;
     //    console.log(scroll)

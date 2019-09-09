@@ -6,7 +6,10 @@
 canvas {
     position: fixed;
     left: 0;
-    height: 1500px;
+    top: 0;
+    width: 100%;
+    min-height: -webkit-fill-available;
+    height: 100%;
     z-index: -1;
 /*    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);*/
 /*    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);*/
@@ -17,7 +20,6 @@ canvas {
 /*    background-image: linear-gradient(to bottom, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);*/
 /*    background-image: linear-gradient(to top, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);*/
     background: black;
-    transition: background-image 1s ease;
 }
 
 body {
