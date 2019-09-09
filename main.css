@@ -17,7 +17,6 @@ canvas {
 /*    background-image: linear-gradient(to bottom, #243949 0%, #517fa4 100%);*/
 /*    background-image: linear-gradient(to bottom, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);*/
 /*    background-image: linear-gradient(to top, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);*/
-    background: black;
 }
 
 body {
@@ -41,11 +40,8 @@ body a {
 #bg {
     width: 100vw;
     height: 100vh;
-    background-image: url('gif/trails_soft.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
     position: fixed;
-    z-index: -1;
+    z-index: -2;
 }
 
 

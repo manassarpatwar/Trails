@@ -32,7 +32,7 @@ window.addEventListener("scroll", function (event) {
     animation(sections, 'spread-animate');
 })
 
-document.getElementById("body").style.height = window.innerHeight;
+var bg = document.getElementById("bg");
 
 
 var backgroundGradients = ["linear-gradient(to bottom, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%)",
@@ -45,5 +45,5 @@ var backgroundGradients = ["linear-gradient(to bottom, #FF3CAC 0%, #562B7C 52%, 
     "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
     "radial-gradient(black 0%, black 100%)"]
 var rand = Math.round(Math.random() * (backgroundGradients.length - 1));
-canvas.style.backgroundImage = backgroundGradients[rand];
+bg.style.backgroundImage = backgroundGradients[rand];
 

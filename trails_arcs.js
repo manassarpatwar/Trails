@@ -4,13 +4,13 @@ context = canvas.getContext("2d");
 var w = 0;
 var h = 0;
 function resizeCanvas() {
-    canvas.width = window.innerWidth*4;
-    canvas.height = window.innerHeight*4;
+    canvas.width = window.innerWidth*2;
+    canvas.height = window.innerHeight*2;
     w = canvas.width;
     h = canvas.height;
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
-    context.translate(w / 8, h / 8);
+    canvas.style.width = w/2 + "px";
+    canvas.style.height = h/2 + "px";
+    context.translate(w / 2, h / 2);
 };
 
 resizeCanvas();
@@ -25,7 +25,7 @@ var speed = Math.PI/400;
 
 function setup(){
     for(var i = 0; i < numTrails; i++){
-        var radius =  Math.sqrt(Math.pow(Math.random()*w/8 , 2) + Math.pow(Math.random()*h/8 , 2));
+        var radius =  Math.sqrt(Math.pow(Math.random()*w - w/2 , 2) + Math.pow(Math.random()*h - h/2 , 2));
         if(radius< Math.max(window.innerWidth, window.innerHeight))
             trails.push(new Trail(radius))
     }
