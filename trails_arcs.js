@@ -5,7 +5,7 @@ var h = 0;
 
 function resizeCanvas() {
     canvas.width = window.innerWidth*2;
-    if (window.innerHeight > h)
+    if (window.innerHeight*2 > h)
         canvas.height = window.innerHeight*2;
     w = canvas.width;
     h = canvas.height;
