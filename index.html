@@ -6,113 +6,11 @@
     <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width, 
     initial-scale=1, maximum-scale=1" />
-    <noscript>
-        <style>
-            .spread {
-                opacity: 1;
-            }
-
-            #splash .splash-spread .random-splash:nth-child(1) {
-                display: block;
-            }
-
-            #javascript .splash-spread {
-                padding: 20px;
-                color: white;
-                font-size: inherit;
-                opacity: 0;
-                animation: in 3s ease-out forwards 1;
-            }
-            
-            #bg{
-                background-image: url('gif/trails_soft.gif');
-        background-size: cover;
-        background-repeat: no-repeat;
-            }
-        </style>
-    </noscript>
 </head>
 
 <body>
     <canvas id="canvas"></canvas>
     <main>
-        <div id="bg"></div>
-        <div id="container">
-            <noscript>
-                <section id="javascript">
-                    <div class="splash-spread spread">
-                        <p>I too don't like <span class="coloured">Javascript</span> much</p>
-                        <p>I try to find novel ways to work <br>around <span class="coloured">Javascript</span></p>
-                        <p>This probably looks <span class="coloured">okay</span></p>
-                    </div>
-                    <p>P.S Dont forget to turn <span class="coloured">JS</span> back on</p>
-                </section>
-            </noscript>
-            <section id="splash">
-                <div class="splash-spread spread">
-                    <p class="random-splash">"Shoot for the moon and even if you miss you will still be among the stars"<br><span class="coloured">- Norman Vincent Peale</span></p>
-                    <p class="random-splash">“It is not in the stars to hold our destiny but in ourselves.“<br><span class="coloured">- William Shakespeare</span></p>
-                    <p class="random-splash ">“Keep your eyes on the stars, and your feet on the ground.“<br><span class="coloured">– Theodore Roosevelt</span></p>
-                    <p class="random-splash">“Only in the darkness can you see the stars.”<br><span class="coloured">– Martin Luther King Jr.</span></p>
-                </div>
-            </section>
-            <section id="greet">
-                <div class="spread">
-                    <p>Hi.</p>
-                </div>
-            </section>
-            <section id="intro">
-                <div class="spread">
-                    <p>I am <span class="coloured">Manas.</span></p>
-                </div>
-            </section>
-            <section id="about">
-                <div class="spread">
-                    <p>I'm a student at
-                        <br><span class="hoverable coloured"><a href="https://www.sheffield.ac.uk/" target="_blank">The University Of Sheffield</a></span></p>
-                </div>
-            </section>
-            <section id="about">
-                <div class="spread">
-                    <p>I am interested in:<br></p>
-                    <p class="hoverable coloured"><a href="#web-design">Web Design</a></p>
-                    <p class="hoverable coloured"><a href="#web-design">Software Development</a></p>
-                    <p class="hoverable coloured"><a href="#machine-learning">Machine Learning</a></p>
-                </div>
-            </section>
-            <section id="web-design">
-                <div class="spread">
-                    <p>Some web design that<br>I have done:</p>
-                    <p class="hoverable coloured"><a href="https://simonaspetk.github.io/StudentsUnionWebsite/index.html" target="_blank">Students Union Website</a></p>
-                    <p class="hoverable coloured"><a href="https://github.com/manassarpatwar/Alta" target="_blank">Alta Taxi</a></p>
-                </div>
-            </section>
-            <section id="machine-learning">
-                <div class="spread">
-                    <p>I did a <span class="coloured">Machine Learning</span><br>course on Coursera<br> which was fun!<span><a href="https://www.coursera.org/account/accomplishments/verify/W72J5ZE6BJQW" target="_blank"><img src="img/link.png" alt="certificate link icon" class="link-icon"></a></span></p>
-                </div>
-            </section>
-
-            <section id="resume">
-                <div class="spread">
-                    <p>My <span class="coloured">resume:</span></p>
-                    <div class="details">
-                        <a href="resume/RESUME.pdf" target="_blank"><img alt="view resume" src="img/view_white.png" class="contact-logos"></a>
-                        <a href="resume/RESUME.pdf" download="manassarpatwar_resume.pdf"><img alt="Download resume" src="img/download_white.png" class="contact-logos"></a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="spread">
-                    <p>My contact <span class="coloured">details:</span></p>
-                    <div class="details">
-                        <a href="https://www.linkedin.com/in/manas-sarpatwar-5165bb172/" target="_blank"><img src="img/LinkedIn.png" alt="LinkedIn logo" class="contact-logos" id="linkedin_logo"></a><a href="mailto:manas.mahesh.sarpatwar@gmail.com" target="_top"><img src="img/gmail.svg" alt="Gmail logo" class="contact-logos" id="gmail_logo"></a>
-                    </div>
-                </div>
-            </section>
-        </div>
-
     </main>
     <script src="app.js"></script>
     <script src="trails_arcs.js"></script>

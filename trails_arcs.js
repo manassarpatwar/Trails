@@ -39,7 +39,7 @@ function Trail(radius) {
     this.arc_width = 2;
     this.radius = radius;
     this.st_ang = Math.random() * Math.PI * 2;
-    this.starOpacity = (Math.random() + 0.5) / 1.6667;
+    this.starOpacity = (Math.random() + 0.5) / 1.5;
 }
 
 function Arc(start_angle, end_angle, width, radius) {
