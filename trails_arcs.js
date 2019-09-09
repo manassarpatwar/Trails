@@ -4,13 +4,14 @@ context = canvas.getContext("2d");
 var w = 0;
 var h = 0;
 function resizeCanvas() {
-    canvas.width = window.innerWidth*2;
-    canvas.height = window.innerHeight*2;
+    canvas.width = window.innerWidth*4;
+    canvas.height = window.innerHeight*4;
     w = canvas.width;
     h = canvas.height;
     canvas.style.width = w/2 + "px";
     canvas.style.height = h/2 + "px";
-    context.translate(w / 2, h / 2);
+    context.translate(w / 4, h / 4);
+    setup();
 };
 
 resizeCanvas();
@@ -20,12 +21,12 @@ var half_degree = Math.PI / 180;
 var offset = 0.05;
 var star_radius = 1.5;
 var trails = [];
-var numTrails = 200;
+var numTrails = w/10;
 var speed = Math.PI/400;
 
 function setup(){
     for(var i = 0; i < numTrails; i++){
-        var radius =  Math.sqrt(Math.pow(Math.random()*w - w/2 , 2) + Math.pow(Math.random()*h - h/2 , 2));
+        var radius =  Math.sqrt(Math.pow(Math.random()*w/2 , 2) + Math.pow(Math.random()*h/2 , 2));
         if(radius< Math.max(window.innerWidth, window.innerHeight))
             trails.push(new Trail(radius))
     }
@@ -49,7 +50,7 @@ function Arc(start_angle, end_angle, width, radius) {
 
 //window.addEventListener("scroll", function () {
 function animate(){
-    context.clearRect(-w/ 2, -h/ 2, w, h);
+    context.clearRect(-w/4, -h/4, w, h);
     for(var i = 0; i < trails.length; i++){
         if (trails[i].arc_width >= 0) {
 //            var st_ang = Math.random()*Math.PI*2;

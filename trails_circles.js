@@ -15,7 +15,6 @@ function resizeCanvas() {
 };
 
 resizeCanvas();
-window.onresize = resizeCanvas;
 
 
 
