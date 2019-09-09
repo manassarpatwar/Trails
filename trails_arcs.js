@@ -20,9 +20,9 @@ window.onresize = resizeCanvas;
 var half_degree = Math.PI / 180;
 
 var offset = 0.05;
-var star_radius = 3;
+var star_radius = 1.5;
 var trails = [];
-var numTrails = 100;
+var numTrails = 200;
 var speed = Math.PI/400;
 
 function setup(){
