@@ -1,6 +1,6 @@
 # Trails
 Star trail animation in html5 canvas.
 
-2 Trail types, using arcs and using rects as trail particles.
+[Check It Out!](https://manassarpatwar.github.io/Trails/)
 
 Computationally expensive but stunning looking.
