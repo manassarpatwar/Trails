@@ -77,18 +77,10 @@ function drawTrails(dir) {
         t.drawTrail(dir);
 }
 
-
-drawTrails()
-
-window.addEventListener("scroll", function(){
+function update(){
     clearCanvas();
-    drawTrails(1);
-})
+    drawTrails();
+    requestAnimationFrame(update);
+}
 
-//function update(){
-//    clearCanvas();
-//    drawTrails();
-//    requestAnimationFrame(update);
-//}
-//
-//update();
+update();
