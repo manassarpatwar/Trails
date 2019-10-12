@@ -35,7 +35,7 @@ for (let i = 0; i < NUMTRAILS; i++)
 function Trail() {
     this.start = Math.random() * Math.PI * 2;
     this.end = this.start;
-    this.radius = Math.random() * 0.6*w;
+    this.radius = Math.random() * 0.6*Math.max(w,h);
     this.opacity = Math.random() / 2 + 0.5;
 }
 
