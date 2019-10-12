@@ -23,7 +23,7 @@ function clearCanvas() {
 
 
 const TRAILS = [];
-const NUMTRAILS = 250;
+const NUMTRAILS = w/10;
 const SPEED = 1 / 4;
 
 for (let i = 0; i < NUMTRAILS; i++)
@@ -32,7 +32,7 @@ for (let i = 0; i < NUMTRAILS; i++)
 function Trail() {
     this.start = Math.random() * Math.PI * 2;
     this.end = this.start;
-    this.radius = Math.random() * w / 2;
+    this.radius = Math.random() * 0.6*w;
     this.opacity = Math.random() / 2 + 0.5;
 }
 
