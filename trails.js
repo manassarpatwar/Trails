@@ -16,6 +16,9 @@ function resizeCanvas() {
 
 resizeCanvas();
 
+window.addEventListener("resize", function () {
+    resizeCanvas()
+})
 
 function clearCanvas() {
     context.clearRect(-w / 2, -h / 2, w, h);
